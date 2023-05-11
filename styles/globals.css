@@ -142,7 +142,7 @@
 
 .dropdown {
   @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[200px] flex flex-col gap-2 justify-end items-end;
-  background-color: rgba(159, 153, 140, 0.819);
+  background-color: rgba(242, 230, 210, 0.819);
 }
 
 .dropdown_link {
