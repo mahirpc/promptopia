@@ -13,12 +13,12 @@ export const GET = async (request,{params}) =>{
         return new Response(JSON.stringify(prompt),{status:200})
     }
     catch(e){
-        return new Response("Failed to get prompt",{status:500}) 
+        return (new Response("Failed to get prompt",{status:500})) 
     }
 }
 
 //PATCH (to update)
-export const PATCH = async (request { params }) => {
+export const PATCH = async (request, { params }) => {
     const { prompt, tag} = await request.json();
 
     try{
