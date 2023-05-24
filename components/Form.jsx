@@ -53,6 +53,7 @@ const Form = ({type, post, setPost, submitting, handleSubmit}) => {
               >
                   {submitting ? `${type}...` : type}
               </button>
+              
             </div>
 
           </form>

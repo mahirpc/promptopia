@@ -58,7 +58,7 @@ const Nav = () => {
                           Sign In
                         </button>
                       ))
-                      }
+                    }
                 </>
             )
         }
@@ -72,12 +72,11 @@ const Nav = () => {
                 <Image src='/assets/icons/menu.svg' 
                     width={30} height={30} 
                     className='rounded-full' alt='profile' 
-                    onClick={()=>setToggeleDropdown(prevState => !prevState)
-                    }
+                    onClick={()=>setToggeleDropdown(prevState => !prevState)}
                 />
                 {toggleDropdown && (
                     <div className='dropdown'>
-                        <p className='dropdown_link'>{`Hi,  ${session?.user.name}`}</p>
+                        <p className='dropdown_link'>{`Hi,  ${session?.user.name.split(" ")[0]}`}</p>
                         <Link href='/create-prompt' className='dropdown_link'
                             onClick={()=>setToggeleDropdown(false)}>
                             Create Prompt
@@ -101,7 +100,8 @@ const Nav = () => {
             <>
                 { providers &&
                     Object.values(providers).map((provider,index) => (
-                    <button key={index} className='outline_btn' type='button' onClick={() =>  signIn(provider.id)}>
+                    <button key={index} className='outline_btn' 
+                            type='button' onClick={() => signIn(provider.id)}>
                         Sign In
                     </button>
                     ))

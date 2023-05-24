@@ -28,6 +28,7 @@ const CreatePrompt = () => {
                     tag: post.tag,
                 })
             })
+
             if(response.ok){
                 router.push('/')
             }
@@ -39,13 +40,16 @@ const CreatePrompt = () => {
     }
 
     return (
-        <Form 
-            type = "create"
-            post = {post}
-            setPost = {setPost}
-            submitting = {submitting}
-            handleSubmit = {createPrompt}
-        />
+            <>
+                <Form 
+                    type = "create"
+                    post = {post}
+                    setPost = {setPost}
+                    submitting = {submitting}
+                    handleSubmit = {createPrompt}
+                />
+                
+            </>
     )
 }
 
