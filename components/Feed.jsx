@@ -2,7 +2,10 @@
 import {useState, useEffect} from 'react'
 import PromptCard from './PromptCard'
 
-const PromptCardList = ({data, handleTagClick}) => {
+const PromptCardList = ({data, handleTagClick, searchText}) => {
+  if(searchText){
+    data = data.filter(post => post.tag.toLowerCase().includes(searchText.toLowerCase()) || post.prompt.toLowerCase().includes(searchText.toLowerCase()) || post.creator.username.toLowerCase().includes(searchText.toLowerCase()))
+  }
   return(
     <div className='mt-16 prompt_layout'>
       {data.map((post) =>(
@@ -21,6 +24,9 @@ const Feed = () => {
   const [posts, setPosts] = useState([])
   const handleSearchChange = (e) => {
     setSearchText(e.target.value)
+  }
+  const handleTagClick = (tag) => {
+    setSearchText(tag)
   }
   useEffect(() => {
     const fetchPosts = async() => {
@@ -45,7 +51,8 @@ const Feed = () => {
       </form>
       <PromptCardList 
         data={posts}
-        handleTagClick={() => {}}
+        handleTagClick={handleTagClick}
+        searchText={searchText}
       />
     </section>
   )
