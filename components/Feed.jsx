@@ -4,7 +4,9 @@ import PromptCard from './PromptCard'
 
 const PromptCardList = ({data, handleTagClick, searchText}) => {
   if(searchText){
-    data = data.filter(post => post.tag.toLowerCase().includes(searchText.toLowerCase()) || post.prompt.toLowerCase().includes(searchText.toLowerCase()) || post.creator.username.toLowerCase().includes(searchText.toLowerCase()))
+    data = data.filter( post => post.prompt.toLowerCase().includes(searchText) || 
+                        post.tag.toLowerCase().includes(searchText) || 
+                        post.creator.username.toLowerCase().includes(searchText)  )
   }
   return(
     <div className='mt-16 prompt_layout'>
@@ -23,10 +25,10 @@ const Feed = () => {
   const [searchText, setSearchText] = useState('')
   const [posts, setPosts] = useState([])
   const handleSearchChange = (e) => {
-    setSearchText(e.target.value)
+    setSearchText(e.target.value.toLowerCase())
   }
   const handleTagClick = (tag) => {
-    setSearchText(tag)
+    setSearchText(tag.toLowerCase())
   }
   useEffect(() => {
     const fetchPosts = async() => {

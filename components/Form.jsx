@@ -34,7 +34,7 @@ const Form = ({type, post, setPost, submitting, handleSubmit}) => {
               </span>
               <textarea 
                 value={post.tag}
-                placeholder="#tag"
+                placeholder="Type without # symbol..."
                 onChange={(e) => setPost({...post, tag: e.target.value})}
                 className="form_input"
                 required
